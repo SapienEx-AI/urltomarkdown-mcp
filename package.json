@@ -1,0 +1,23 @@
+{
+  "name": "urltomarkdown-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for converting URLs and HTML to Markdown",
+  "main": "src/index.js",
+  "bin": {
+    "urltomarkdown-mcp": "src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "jsdom": "^24.1.3",
+    "urltomarkdown": "file:../urltomarkdown",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "license": "MIT"
+}
