@@ -1,6 +1,11 @@
 # urltomarkdown-mcp
 
+[![npm version](https://img.shields.io/npm/v/urltomarkdown-mcp)](https://www.npmjs.com/package/urltomarkdown-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 An [MCP](https://modelcontextprotocol.io) server that converts URLs and raw HTML to clean Markdown. Built on top of [urltomarkdown](https://github.com/macsplit/urltomarkdown).
+
+Give any MCP-compatible AI assistant the ability to read web pages — just point it at a URL and get structured Markdown back, ready for summarization, analysis, or ingestion into your workflow.
 
 ## Tools
 
@@ -26,6 +31,14 @@ Converts raw HTML to clean Markdown (no network request needed).
 | `inline_title` | boolean | no | `true` | Prepend page title as H1 |
 | `ignore_links` | boolean | no | `false` | Strip hyperlinks |
 | `readability` | boolean | no | `true` | Use Readability for cleaner output |
+
+## Use cases
+
+- **Research** — Have your AI assistant read and summarize articles, documentation, or blog posts
+- **Data extraction** — Pull structured content from web pages for analysis
+- **Documentation ingestion** — Convert API docs or reference pages into Markdown for context
+- **Content migration** — Bulk convert web content to Markdown format
+- **RAG pipelines** — Feed clean web content into retrieval-augmented generation systems
 
 ## Installation
 
@@ -85,6 +98,18 @@ npm install
 |--------|-------------|
 | Claude Desktop | `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) or `%APPDATA%\Claude\claude_desktop_config.json` (Windows) |
 | Claude Code | `~/.claude/settings.local.json` or project `.mcp.json` |
+| Cursor | `.cursor/mcp.json` in your project root |
+| Windsurf | `~/.codeium/windsurf/mcp_config.json` |
+
+## How it works
+
+This server wraps the [urltomarkdown](https://github.com/macsplit/urltomarkdown) library and exposes it over the [Model Context Protocol](https://modelcontextprotocol.io) via stdio transport. Under the hood it uses:
+
+- [Turndown](https://github.com/mixmark-io/turndown) for HTML-to-Markdown conversion
+- Mozilla's [Readability](https://github.com/mozilla/readability) for content extraction and noise removal
+- [JSDOM](https://github.com/jsdom/jsdom) for DOM parsing
+
+The Readability pass strips navigation, sidebars, ads, and other non-content elements before conversion, producing clean output suitable for LLM consumption.
 
 ## Testing
 
@@ -92,10 +117,10 @@ npm install
 npm test
 ```
 
-## How it works
-
-This server wraps the [urltomarkdown](https://github.com/macsplit/urltomarkdown) library, which uses [Turndown](https://github.com/mixmark-io/turndown) for HTML-to-Markdown conversion and Mozilla's [Readability](https://github.com/mozilla/readability) for content extraction. It exposes the conversion functionality over the [Model Context Protocol](https://modelcontextprotocol.io) via stdio transport.
-
 ## License
 
 MIT
+
+---
+
+[SapienEx](https://sapienex.com) — AI strategy and consulting
