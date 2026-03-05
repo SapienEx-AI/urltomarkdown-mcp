@@ -1,6 +1,6 @@
 {
   "name": "urltomarkdown-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for converting URLs and HTML to clean Markdown",
   "main": "src/index.js",
   "bin": {
