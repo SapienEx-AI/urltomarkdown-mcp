@@ -1,7 +1,7 @@
 {
   "name": "urltomarkdown-mcp",
   "version": "1.0.0",
-  "description": "MCP server for converting URLs and HTML to Markdown",
+  "description": "MCP server for converting URLs and HTML to clean Markdown",
   "main": "src/index.js",
   "bin": {
     "urltomarkdown-mcp": "src/index.js"
@@ -10,14 +10,42 @@
     "start": "node src/index.js",
     "test": "jest"
   },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "markdown",
+    "html-to-markdown",
+    "url-to-markdown",
+    "web-scraping",
+    "readability",
+    "turndown",
+    "claude",
+    "llm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SapienEx-AI/urltomarkdown-mcp.git"
+  },
+  "homepage": "https://github.com/SapienEx-AI/urltomarkdown-mcp",
+  "bugs": {
+    "url": "https://github.com/SapienEx-AI/urltomarkdown-mcp/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "src/"
+  ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1",
     "jsdom": "^24.1.3",
-    "urltomarkdown": "file:../urltomarkdown",
+    "urltomarkdown": "github:macsplit/urltomarkdown",
     "zod": "^4.3.6"
   },
   "devDependencies": {
     "jest": "^29.7.0"
   },
+  "author": "SapienEx-AI",
   "license": "MIT"
 }
